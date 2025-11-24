@@ -135,9 +135,9 @@ class Player(Character):
         return False  # חסין
 
 
-# ----------------------------------------------------
+
 # מחלקה יורשת: אויב (Enemy)
-# ----------------------------------------------------
+
 
 class Enemy(Character):
     def __init__(self, x, y, size, walls):
@@ -217,10 +217,9 @@ class Enemy(Character):
         self.health -= 1
         return self.health <= 0
 
-#Liav the king
-# ----------------------------------------------------
+
 # מחלקת הלייזר (Laser)
-# ----------------------------------------------------
+
 
 class Laser(pygame.sprite.Sprite):
     def __init__(self, x, y, angle, player_laser):
@@ -250,9 +249,8 @@ class Laser(pygame.sprite.Sprite):
         if pygame.sprite.spritecollideany(self, walls): self.kill()
 
 
-# ----------------------------------------------------
 # מחלקת בסיס: עצמי מפה (MapObject)
-# ----------------------------------------------------
+
 
 class MapObject(pygame.sprite.Sprite):
     def __init__(self, x, y, width, height, color):
@@ -262,19 +260,19 @@ class MapObject(pygame.sprite.Sprite):
         self.rect = self.image.get_rect(topleft=(x, y))
         pygame.draw.rect(self.image, BLACK, self.image.get_rect(), 2)
 
-    # ----------------------------------------------------
+
 
 
 # מחלקה יורשת: קיר (Wall)
-# ----------------------------------------------------
+
 
 class Wall(MapObject):
     pass
 
 
-# ----------------------------------------------------
+
 # הגדרת המפה והמשחק (Setup Game)
-# ----------------------------------------------------
+
 
 def setup_game():
     all_sprites = pygame.sprite.Group()
@@ -315,9 +313,9 @@ def setup_game():
     return all_sprites, player_lasers, enemy_lasers, walls, player, enemies
 
 
-# ----------------------------------------------------
+
 # לולאת המשחק הראשית (Game Loop)
-# ----------------------------------------------------
+
 
 def game_loop():
     all_sprites, player_lasers, enemy_lasers, walls, player, enemies = setup_game()
